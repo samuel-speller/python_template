@@ -23,6 +23,11 @@ pythonpath = ["src"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+## UV Configuration ##
+[tool.uv]
+python-downloads = "never"
+python-preference = "only-system"
  
 ## Ruff Configuration ##
 [tool.ruff.lint]

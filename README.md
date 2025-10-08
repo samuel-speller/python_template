@@ -30,6 +30,7 @@
     - [5️⃣ Testing](#5️⃣-testing)
   - [📚 External Dependencies](#-external-dependencies)
   - [📝 Licence](#-licence)
+  - [Using `UV`](#using-uv)
   - [✨ Code Quality: Using Ruff](#-code-quality-using-ruff)
     - [How to Run Ruff](#how-to-run-ruff)
   - [🛢️ SQL Linting: Using SQLFluff](#️-sql-linting-using-sqlfluff)
@@ -157,6 +158,49 @@ pip install -r pyproject.toml
 
 ## 📝 Licence
 MIT Licence, see `LICENSE`
+
+
+## Using `UV`
+
+ If `UV` is not already installed, then use these steps to install it
+
+ * First, install `UV`. Up to date documentation regarding the installation and use of `UV` can be found here: [UV docs link](https://docs.astral.sh/uv/) (`pip install UV` into your base environment is not best practice but works quite well)
+ * There is an additional step which allows UV to use the SSL certificates for your system. An environmental variable has to be added: `UV_NATIVE_TLS=true`
+   * **Option 1:** To do this in a Powershell terminal type:
+     ```powershell
+     [Environment]::SetEnvironmentVariable("UV_NATIVE_TLS", "true", "User")
+     ```
+   * **Option 2:** This can also be added in Windows:
+     * search for 'environment variables' in the Windows search bar and then click on 'Edit the environmental variables for your account'.
+     * Click 'New' and use `UV_NATIVE_TLS` in the 'Variable name' field and `true` in the 'Variable value' field
+     * Click 'OK'
+ * Disable automatic python downloads:
+     * By default, UV will download versions of python as required. We want to prevent this behaviour so that it only uses python installations that have been installed through a secure software system.
+     * These lines have been added to the `pyproject.toml`, but make sure they are present:
+         ```toml
+         [tool.uv]
+         python-downloads = "never"
+         pyton-preference = "only-system"
+         ```
+ * Force UV to install packages through an internal PyPI repository (e.g. ONS Artifactory):
+     * Option 1: To achieve this system wide, add an environmental variable containing the url to the PyPI repository (for ONS Artifactory this includes your username and password). To do this for ONS Artifactory, type this into a powershell terminal:
+         ```powershell
+         [Environment]::SetEnvironmentVariable("UV_INDEX_URL", "https://<Windows-username>:<hashed-Artifactory-password>@onsart-01/artifactory/api/pypi/yr-python/simple", "User")
+         ```
+         provide your personal windows-username and hashed-Artifactory-password. These can be found in the pip.ini file on your system. Documentation for finding your hashed password can also be found [here](https://gitlab-app-l-01/ASAP/coding-getting-started-guide/-/wikis/Artifactory)
+    * Option 2: To set this up in your repository only, add this to the `pyproject.toml` file (this is another ONS Artifactory example):
+        ```toml
+        # Point UV to the internal PyPI repository
+        [[tool.uv.index]]
+        url = "https://<Windows-username>:<hashed-Artifactory-password>@onsart-01/artifactory/api/pypi/yr-python/simple"
+        default = true
+
+        # ignore SSL checks when using artifactory.
+        # this is a temporary fix as an issue arose when using UV and pointing it towards artifactory
+        [tool.uv]
+        allow-insecure-host = ["https://onsart-01/artifactory/api/pypi/yr-python/simple"]
+
+        ```    
 
 
 ## ✨ Code Quality: Using Ruff
