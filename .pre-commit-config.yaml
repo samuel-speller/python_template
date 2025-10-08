@@ -1,0 +1,35 @@
+repos:
+-   repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.0
+    hooks:
+      # Run the linter.
+      -   id: ruff-check
+          args: [ --fix ]
+      # Run the formatter.
+      -   id: ruff-format
+ 
+-   repo: https://github.com/kynan/nbstripout
+    rev: 0.7.1
+    hooks:
+    -   id: nbstripout
+ 
+# -   repo: https://github.com/RobertCraigie/pyright-python
+#     rev: v1.1.391
+#     hooks:
+#       -   id: pyright
+#           name: "🐍 python · Check types"
+ 
+-   repo: https://github.com/sqlfluff/sqlfluff
+    rev: 3.3.1
+    hooks:
+    -   id: sqlfluff-fix
+        name: "SQL · Attempts to fix rule violations."
+    -   id: sqlfluff-lint
+        name: "SQL · Lint SQL code files"
+  
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      -   id: check-added-large-files
+          name: Check for files larger than 5 MB
+          args: ['--maxkb=5120']

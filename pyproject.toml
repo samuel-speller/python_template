@@ -1,0 +1,52 @@
+[project]
+name = "template-repo"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "ipykernel>=6.30.1",
+    "matplotlib>=3.10.6",
+    "pandas>=2.3.3",
+    "pip>=25.2",
+    "plotly>=6.3.1",
+    "polars>=1.34.0",
+    "pre-commit>=4.3.0",
+    "pyright[nodejs]>=1.1.406",
+    "ruff>=0.14.0",
+    "seaborn>=0.13.2",
+    "sqlfluff>=3.4.2",
+]
+ 
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+ 
+# Ruff Configuration
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ 
+# Pyright Configuration
+[tool.pyright]
+exclude = [".venv"]
+PythonVersion = "3.12"
+venvPath = "."
+venv = ".venv"
+ 
+# SQL Fluff Configuration
+[tool.sqlfluff.core]
+dialect = "oracle"
+sql_file_exts = ".sql"
+ 
+[tool.sqlfluff.indentation]
+indent_unit = "tab"
+ 
+[tool.sqlfluff.rules.capitalisation.keywords]
+capitalisation_policy = "upper"
+ 
+[tool.sqlfluff.capitalisation.functions]
+extended_capitalisation_policy = "upper"
+ 
+[tool.sqlfluff.rules.layout.keyword_newline]
