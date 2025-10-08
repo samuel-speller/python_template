@@ -24,18 +24,18 @@ pythonpath = ["src"]
 [tool.setuptools.packages.find]
 where = ["src"]
  
-# Ruff Configuration
+## Ruff Configuration ##
 [tool.ruff.lint]
 select = ["E", "F", "I"]
  
-# Pyright Configuration
+## Pyright Configuration ##
 [tool.pyright]
 exclude = [".venv"]
 PythonVersion = "3.12"
 venvPath = "."
 venv = ".venv"
  
-# SQL Fluff Configuration
+## SQL Fluff Configuration ##
 [tool.sqlfluff.core]
 dialect = "oracle"
 sql_file_exts = ".sql"

@@ -13,11 +13,11 @@ repos:
     hooks:
     -   id: nbstripout
  
-# -   repo: https://github.com/RobertCraigie/pyright-python
-#     rev: v1.1.391
-#     hooks:
-#       -   id: pyright
-#           name: "🐍 python · Check types"
+-   repo: https://github.com/RobertCraigie/pyright-python
+    rev: v1.1.391
+    hooks:
+      -   id: pyright
+          name: "Pyright - Python, Check types"
  
 -   repo: https://github.com/sqlfluff/sqlfluff
     rev: 3.3.1
