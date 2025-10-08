@@ -29,7 +29,7 @@
     - [4️⃣ Adding Modules](#4️⃣-adding-modules)
     - [5️⃣ Testing](#5️⃣-testing)
   - [📚 External Dependencies](#-external-dependencies)
-  - [📝 License](#-license)
+  - [📝 Licence](#-licence)
   - [✨ Code Quality: Using Ruff](#-code-quality-using-ruff)
     - [How to Run Ruff](#how-to-run-ruff)
   - [🛢️ SQL Linting: Using SQLFluff](#️-sql-linting-using-sqlfluff)
@@ -155,8 +155,8 @@ pip install -r pyproject.toml
 - Use `uv` or `pip` for installation.
 
 
-## 📝 License
-MIT License, see `LICENSE`
+## 📝 Licence
+MIT Licence, see `LICENSE`
 
 
 ## ✨ Code Quality: Using Ruff
