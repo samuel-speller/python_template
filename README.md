@@ -30,7 +30,7 @@
     - [5️⃣ Testing](#5️⃣-testing)
   - [📚 External Dependencies](#-external-dependencies)
   - [📝 Licence](#-licence)
-  - [Using `UV`](#using-uv)
+  - [🛠️ Using `UV`](#️-using-uv)
   - [✨ Code Quality: Using Ruff](#-code-quality-using-ruff)
     - [How to Run Ruff](#how-to-run-ruff)
   - [🛢️ SQL Linting: Using SQLFluff](#️-sql-linting-using-sqlfluff)
@@ -160,7 +160,7 @@ pip install -r pyproject.toml
 MIT Licence, see `LICENSE`
 
 
-## Using `UV`
+## 🛠️ Using `UV`
 
  If `UV` is not already installed, then use these steps to install it
 
