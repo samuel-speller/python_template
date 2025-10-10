@@ -47,6 +47,7 @@ sql_file_exts = ".sql"
  
 [tool.sqlfluff.indentation]
 indent_unit = "tab"
+indented_ctes = "True"
  
 [tool.sqlfluff.rules.capitalisation.keywords]
 capitalisation_policy = "upper"
