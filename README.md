@@ -180,7 +180,7 @@ MIT Licence, see `LICENSE`
          ```toml
          [tool.uv]
          python-downloads = "never"
-         pyton-preference = "only-system"
+         python-preference = "only-system"
          ```
  * Force UV to install packages through an internal PyPI repository (e.g. ONS Artifactory):
      * Option 1: To achieve this system wide, add an environmental variable containing the url to the PyPI repository (for ONS Artifactory this includes your username and password). To do this for ONS Artifactory, type this into a powershell terminal:
